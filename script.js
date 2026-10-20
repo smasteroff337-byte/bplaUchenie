@@ -206,3 +206,70 @@ function startSimulation(type) {
         }, 800);
     }
 }
+
+// ==========================================
+// 4. СИМУЛЯТОР ИИ (Блок 5)
+// ==========================================
+let aiInterval;
+
+function startAISimulation() {
+    clearInterval(aiInterval);
+    
+    const aiStatus = document.getElementById('aiStatus');
+    const aiConf = document.getElementById('aiConf');
+    const aiTarget = document.getElementById('aiTarget');
+    const aiLock = document.getElementById('aiLock');
+    const aiNoise = document.getElementById('aiNoise');
+    
+    // Если элементов нет на странице, выходим
+    if (!aiStatus) return;
+
+    // Сброс
+    aiStatus.innerText = "SCANNING...";
+    aiConf.innerText = "0";
+    aiTarget.style.display = 'block'; // Танк есть, но он серый и в шуме
+    aiTarget.style.background = '#555';
+    aiLock.style.display = 'none';
+    aiNoise.style.opacity = '0.8'; // Много шума
+
+    let time = 0;
+
+    aiInterval = setInterval(() => {
+        time++;
+        
+        if (time === 1) {
+            aiStatus.innerText = "ANALYZING PIXELS...";
+            aiConf.innerText = "15";
+        } 
+        else if (time === 2) {
+            aiStatus.innerText = "ERROR: NOISE DETECTED";
+            aiStatus.style.color = "#f44336";
+            aiConf.innerText = "35";
+        }
+        else if (time === 3) {
+            aiStatus.innerText = "FILTERING IMAGE...";
+            aiStatus.style.color = "#2196F3";
+            aiConf.innerText = "65";
+            aiNoise.style.opacity = '0.3'; // Шум становится меньше
+        }
+        else if (time === 4) {
+            aiStatus.innerText = "PATTERN MATCHED";
+            aiStatus.style.color = "#4CAF50";
+            aiConf.innerText = "92";
+            aiNoise.style.opacity = '0'; // Шум убирается полностью
+            
+            // Танк становится красным (распознан)
+            aiTarget.style.background = '#e53935';
+            aiTarget.style.boxShadow = '0 0 15px rgba(229, 57, 53, 0.8)';
+            aiTarget.style.borderLeftColor = '#b71c1c';
+            
+            // Появляется рамка
+            aiLock.style.display = 'block';
+        }
+        else if (time > 4) {
+            aiStatus.innerText = "TARGET LOCKED";
+            aiConf.innerText = "99";
+            clearInterval(aiInterval); // Останавливаем сканирование
+        }
+    }, 1000); // Каждую секунду
+}

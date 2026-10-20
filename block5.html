@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок 5: ИИ и распознавание</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="block4.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Назад к Блоку 4</a>
+
+        <h1>Блок 5: Искусственный интеллект</h1>
+        <p class="subtitle">Как дрон понимает, что видит</p>
+
+        <div class="intro-box">
+            <p>Мы часто представляем ИИ как «робота с глазами», который думает как человек. На самом деле это математика. Нейросеть не «понимает», что такое танк. Она ищет закономерности в пикселях.</p>
+        </div>
+
+        <h2>1. Как ИИ «видит» мир</h2>
+        <p>Для камеры дрона танк — это просто набор цветных точек (пикселей). Нейросеть анализирует их: ищет границы, углы, тени. Если комбинация этих признаков совпадает с тем, на чем ее обучали (например, на фото танков), она выдает: <strong>«Цель обнаружена»</strong>.</p>
+        
+        <h2>2. Как дрон отличает своих от чужих?</h2>
+        <p>В реальности нейросеть может ошибиться, если танк свой. Поэтому используются дополнительные системы:</p>
+        <ul>
+            <li><strong>Визуальные маркеры:</strong> Свои танки могут иметь яркие опознавательные знаки (например, белые полосы или тепловизорные метки).</li>
+            <li><strong>Система «Свой-Чужой»:</strong> Специальный радиомаяк (транспондер) на своей технике. Если дрон «слышит» этот сигнал, он блокирует атаку.</li>
+            <li><strong>Координаты:</strong> Если цель находится в зоне, где по данным разведки не должно быть своих, ИИ действует агрессивнее.</li>
+        </ul>
+
+        <h2>3. Почему ИИ ошибается?</h2>
+        <p>Нейросеть не всесильна. Если цель замаскирована, стоит в тени, или если на поле боя дым — ИИ может не распознать объект или, наоборот, принять за танк обычный сарай.</p>
+
+        <!-- СИМУЛЯТОР РАСПОЗНАВАНИЯ -->
+        <div class="quiz-box" style="border: 2px solid #4CAF50; background-color: #1a1a1a; margin-top: 30px;">
+            <h3 style="color: #4CAF50; margin-top: 0;">🤖 Симулятор: Работа нейросети</h3>
+            <p style="font-size: 14px; color: #888;">Нажми кнопку и посмотри, как ИИ пытается найти цель в условиях помех.</p>
+            
+            <div style="margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <button onclick="startAISimulation()" style="background-color: #2196F3; flex: 1; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold;">Запустить сканирование</button>
+            </div>
+
+            <div class="fpv-container" style="border-color: #2196F3;">
+                <div class="fpv-screen" id="aiScreen" style="background: #000;"> <!-- Черный экран для сканирования -->
+                    <!-- Шум -->
+                    <div id="aiNoise" style="position: absolute; width: 100%; height: 100%; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2r9//38bIyPTfxubNgYAAJkQBgH8t7vKAAAAAElFTkSuQmCC'); opacity: 0.4; z-index: 5;"></div>
+                    
+                    <!-- Цель -->
+                    <div class="fpv-target" id="aiTarget" style="top: 40%; left: 50%; background-color: #555; box-shadow: none; border-left-color: #333; z-index: 2;"></div>
+                    
+                    <!-- Рамка ИИ -->
+                    <div class="target-lock-box" id="aiLock" style="top: calc(40% - 10px); left: calc(50% - 10px); z-index: 10;">
+                        <div class="target-label" id="aiLabel" style="background-color: #2196F3;">AI: TARGET</div>
+                    </div>
+
+                    <!-- Телеметрия -->
+                    <div class="fpv-hud" style="z-index: 10;">
+                        <div class="fpv-corner-tl" style="color: #2196F3; text-shadow: none;">
+                            <div>AI CORE: <span id="aiStatus">IDLE</span></div>
+                            <div>CONFIDENCE: <span id="aiConf">0</span>%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- КОНЕЦ СИМУЛЯТОРА -->
+
+        <div class="btn-container">
+            <a href="exam.html" class="btn" style="background-color: #2196F3; font-size: 20px; padding: 15px 50px;">🎓 Перейти к финальному экзамену (40 вопросов)</a>
+        </div>
+        <div class="btn-container" style="margin-top: 10px;">
+            <a href="index.html" style="color: #aaa; text-decoration: none;">Вернуться на главную</a>
+        </div>
+
+        <div class="footer">Учебный проект. Без лишней теории, только логика.</div>
+    </div>
+</body>
+</html>
