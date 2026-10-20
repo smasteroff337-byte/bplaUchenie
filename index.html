@@ -4,64 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>БПЛА: как это работает</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            padding: 40px;
-            background-color: #2a2a2a;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            border: 1px solid #3a3a3a;
-        }
-        h1 {
-            color: #4CAF50;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #b0b0b0;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #666;
-        }
-    </style>
+    <!-- Вот здесь мы подключаем наш отдельный файл со стилями -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>БПЛА: как это работает</h1>
-        <p>Этот сайт объясняет принципы работы дронов, режимы управления и роль ИИ. Без лишней теории, только логика.</p>
-        <a href="#block1" class="btn">Начать обучение</a>
-        <div class="footer">Учебный проект. Для новичков.</div>
+        <p class="subtitle">Учебный курс для тех, кто только начинает</p>
+
+        <div class="intro-box">
+            <p><strong>БПЛА (Беспилотный летательный аппарат)</strong> — это не «летающая игрушка» и не «магия». Это сложная система, которая состоит из конкретных частей, работающих по строгим правилам. Этот сайт объясняет, как они устроены, как ими управляют (вручную и автоматически) и что реально делает ИИ на борту.</p>
+        </div>
+
+        <h2>Из чего состоит дрон</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="motor.jpg" alt="Моторы">
+                <h3>Моторы</h3>
+                <p>Создают тягу. От них зависит, как быстро и высоко полетит дрон.</p>
+            </div>
+            <div class="card">
+                <img src="controller.jpg" alt="Полётный контроллер">
+                <h3>Полётный контроллер</h3>
+                <p>«Мозг» дрона. Он читает команды и управляет моторами, чтобы дрон не упал.</p>
+            </div>
+            <div class="card">
+                <img src="camera.jpg" alt="Камера">
+                <h3>Камера</h3>
+                <p>Глаза оператора и ИИ. Через неё видно цель и окружающую обстановку.</p>
+            </div>
+            <div class="card">
+                <img src="radio.jpg" alt="Канал связи">
+                <h3>Канал связи</h3>
+                <p>Передаёт команды с земли на дрон и видео обратно. Самое уязвимое место.</p>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <a href="#block1" class="btn">Начать обучение (Блок 1)</a>
+        </div>
+
+        <div class="footer">
+            Учебный проект. Без лишней теории, только логика.
+        </div>
     </div>
 </body>
 </html>
