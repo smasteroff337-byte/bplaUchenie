@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок 2: Ручной режим</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="block1.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Назад к Блоку 1</a>
+
+        <h1>Блок 2: Ручной режим</h1>
+        <p class="subtitle">Оператор, связь и риски</p>
+
+        <div class="intro-box">
+            <p>В ручном режиме оператор видит картинку с камеры и управляет дроном с помощью пульта (или джойстика). Всё просто: ты двигаешь стик — дрон летит.</p>
+        </div>
+
+        <h2>Главный минус — зависимость от связи</h2>
+        <p>Если между пультом и дроном пропадает сигнал (из-за расстояния, рельефа или РЭБ), дрон становится неуправляемым.</p>
+        <p>В этот момент срабатывает <strong>FailSafe</strong> (защита от потери сигнала). Дрон может:</p>
+        <ul>
+            <li>Зависнуть на месте (в надежде, что связь вернётся).</li>
+            <li>Полететь обратно на точку старта (по GPS).</li>
+            <li>Упасть (если нет GPS).</li>
+        </ul>
+        <p>Поэтому ручной режим хорош для точной работы, но уязвим на больших расстояниях.</p>
+
+        <div class="btn-container">
+            <a href="block3.html" class="btn">Перейти к Блоку 3 (Автономный режим)</a>
+        </div>
+
+        <div class="footer">
+            Учебный проект. Без лишней теории, только логика.
+        </div>
+    </div>
+</body>
+</html>
