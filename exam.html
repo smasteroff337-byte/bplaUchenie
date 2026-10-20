@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финальный экзамен БПЛА</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="block4.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Назад к Блоку 4</a>
+
+        <div class="exam-container">
+            <h1 class="exam-header">🎓 Финальный экзамен</h1>
+            <p style="text-align: center; color: #aaa; margin-bottom: 30px;">Проверь свои знания по всем 4 блокам. В каждом блоке по 10 вопросов. Все ответы правдоподобны, так что думай внимательно.</p>
+
+            <form id="examForm">
+                <h2>Блок 1: Как летает дрон</h2>
+                
+                <div class="question-block">
+                    <div class="question-text">1. Что создает тягу для полета дрона?</div>
+                    <label class="option-label"><input type="radio" name="q1" value="wrong"> Аэродинамическая форма корпуса</label>
+                    <label class="option-label"><input type="radio" name="q1" value="correct"> Вращение моторов с пропеллерами</label>
+                    <label class="option-label"><input type="radio" name="q1" value="wrong"> Электромагнитное поле полётного контроллера</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">2. Почему человек не может напрямую управлять моторами?</div>
+                    <label class="option-label"><input type="radio" name="q2" value="wrong"> Потому что стики пульта слишком тугие</label>
+                    <label class="option-label"><input type="radio" name="q2" value="correct"> Потому что балансировка требует реакции за доли секунды</label>
+                    <label class="option-label"><input type="radio" name="q2" value="wrong"> Потому что моторы работают на переменном токе</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">3. Что произойдет, если задние моторы будут крутиться быстрее передних?</div>
+                    <label class="option-label"><input type="radio" name="q3" value="wrong"> Дрон начнет вращаться вокруг своей оси</label>
+                    <label class="option-label"><input type="radio" name="q3" value="correct"> Дрон наклонится вперед и полетит</label>
+                    <label class="option-label"><input type="radio" name="q3" value="wrong"> Дрон зафиксирует высоту и зависнет</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">4. Какую роль выполняет полётный контроллер?</div>
+                    <label class="option-label"><input type="radio" name="q4" value="wrong"> Он декодирует видеосигнал для очков оператора</label>
+                    <label class="option-label"><input type="radio" name="q4" value="correct"> Он преобразует команды в сигналы для моторов, удерживая баланс</label>
+                    <label class="option-label"><input type="radio" name="q4" value="wrong"> Он отвечает за подачу питания от аккумулятора</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">5. Какие датчики помогают контроллеру понимать наклон дрона?</div>
+                    <label class="option-label"><input type="radio" name="q5" value="wrong"> Барометр и GPS-модуль</label>
+                    <label class="option-label"><input type="radio" name="q5" value="correct"> Гироскопы и акселерометры</label>
+                    <label class="option-label"><input type="radio" name="q5" value="wrong"> Компас и датчик Холла</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">6. Как заставить дрон повернуть направо (по рысканию)?</div>
+                    <label class="option-label"><input type="radio" name="q6" value="wrong"> Ускорить правые моторы и замедлить левые</label>
+                    <label class="option-label"><input type="radio" name="q6" value="correct"> Ускорить левые моторы и замедлить правые (с учетом вращения винтов)</label>
+                    <label class="option-label"><input type="radio" name="q6" value="wrong"> Наклонить нос дрона вниз</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">7. Что делает дрон, если все моторы крутятся с одинаковой скоростью?</div>
+                    <label class="option-label"><input type="radio" name="q7" value="correct"> Висит на месте (если нет ветра)</label>
+                    <label class="option-label"><input type="radio" name="q7" value="wrong"> Медленно набирает высоту</label>
+                    <label class="option-label"><input type="radio" name="q7" value="wrong"> Летит строго на север</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">8. Зачем нужен третий закон Ньютона при полете дрона?</div>
+                    <label class="option-label"><input type="radio" name="q8" value="wrong"> Чтобы рассчитать емкость аккумулятора</label>
+                    <label class="option-label"><input type="radio" name="q8" value="correct"> Чтобы понять, как пропеллер отталкивает воздух вниз, а дрон — вверх</label>
+                    <label class="option-label"><input type="radio" name="q8" value="wrong"> Чтобы настроить частоту видеопередатчика</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">9. Если дрон наклонился влево, что должен сделать полётный контроллер?</div>
+                    <label class="option-label"><input type="radio" name="q9" value="wrong"> Выключить моторы для предотвращения аварии</label>
+                    <label class="option-label"><input type="radio" name="q9" value="correct"> Ускорить правые моторы, чтобы выровнять аппарат</label>
+                    <label class="option-label"><input type="radio" name="q9" value="wrong"> Передать управление оператору</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">10. Без чего дрон точно не сможет держать стабильный полет?</div>
+                    <label class="option-label"><input type="radio" name="q10" value="wrong"> Без камеры</label>
+                    <label class="option-label"><input type="radio" name="q10" value="wrong"> Без GPS</label>
+                    <label class="option-label"><input type="radio" name="q10" value="correct"> Без полётного контроллера</label>
+                </div>
+
+                <!-- БЛОК 2 -->
+                <h2>Блок 2: Ручной режим</h2>
+
+                <div class="question-block">
+                    <div class="question-text">11. Что происходит, если связь с пультом теряется?</div>
+                    <label class="option-label"><input type="radio" name="q11" value="wrong"> Дрон продолжает лететь по инерции прямо</label>
+                    <label class="option-label"><input type="radio" name="q11" value="correct"> Активируется протокол FailSafe</label>
+                    <label class="option-label"><input type="radio" name="q11" value="wrong"> Моторы мгновенно блокируются</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">12. Что из этого НЕ является действием FailSafe?</div>
+                    <label class="option-label"><input type="radio" name="q12" value="wrong"> Автоматический возврат на точку старта (RTH)</label>
+                    <label class="option-label"><input type="radio" name="q12" value="correct"> Экстренное катапультирование оператора</label>
+                    <label class="option-label"><input type="radio" name="q12" value="wrong"> Зависание на последней известной точке</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">13. Почему ручной режим плохо подходит для работы на дистанции 10+ км?</div>
+                    <label class="option-label"><input type="radio" name="q13" value="wrong"> Батарея слишком быстро садится</label>
+                    <label class="option-label"><input type="radio" name="q13" value="correct"> Радиосигнал теряется из-за рельефа и горизонта</label>
+                    <label class="option-label"><input type="radio" name="q13" value="wrong"> Камера перегревается на солнце</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">14. Что нужно для работы функции «Возврат домой» (RTH)?</div>
+                    <label class="option-label"><input type="radio" name="q14" value="wrong"> Стабильный интернет 4G</label>
+                    <label class="option-label"><input type="radio" name="q14" value="wrong"> Работающий видеоканал</label>
+                    <label class="option-label"><input type="radio" name="q14" value="correct"> Работающий модуль GPS</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">15. Какой главный плюс ручного режима?</div>
+                    <label class="option-label"><input type="radio" name="q15" value="correct"> Возможность точных маневров в сложной обстановке</label>
+                    <label class="option-label"><input type="radio" name="q15" value="wrong"> Независимость от помех РЭБ</label>
+                    <label class="option-label"><input type="radio" name="q15" value="wrong"> Автоматическое распознавание целей</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">16. Что такое РЭБ?</div>
+                    <label class="option-label"><input type="radio" name="q16" value="wrong"> Ремонт Электронных Блоков</label>
+                    <label class="option-label"><input type="radio" name="q16" value="wrong"> Радиоуправляемый Электрический Багги</label>
+                    <label class="option-label"><input type="radio" name="q16" value="correct"> Радиоэлектронная борьба (глушение сигналов)</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">17. Что произойдет, если пропала связь, а GPS нет?</div>
+                    <label class="option-label"><input type="radio" name="q17" value="correct"> Дрон не сможет вернуться и упадет</label>
+                    <label class="option-label"><input type="radio" name="q17" value="wrong"> Дрон включит автопилот по камере (если она есть)</label>
+                    <label class="option-label"><input type="radio" name="q17" value="wrong"> Дрон полетит в сторону ближайшей вышки связи</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">18. Что передает канал связи в FPV-дронах?</div>
+                    <label class="option-label"><input type="radio" name="q18" value="wrong"> Только сигналы управления</label>
+                    <label class="option-label"><input type="radio" name="q18" value="correct"> Сигналы управления и аналоговый/цифровой видеосигнал</label>
+                    <label class="option-label"><input type="radio" name="q18" value="wrong"> Только телеметрию (высоту и скорость)</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">19. Если оператор отпустил стики (в режиме Angle), что сделает дрон?</div>
+                    <label class="option-label"><input type="radio" name="q19" value="correct"> Выровняется и зависнет на месте</label>
+                    <label class="option-label"><input type="radio" name="q19" value="wrong"> Продолжит лететь в том же направлении</label>
+                    <label class="option-label"><input type="radio" name="q19" value="wrong"> Упадет</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">20. Что опаснее для ручного дрона на передовой?</div>
+                    <label class="option-label"><input type="radio" name="q20" value="wrong"> Дождь</label>
+                    <label class="option-label"><input type="radio" name="q20" value="correct"> Станции РЭБ противника</label>
+                    <label class="option-label"><input type="radio" name="q20" value="wrong"> Солнечный свет</label>
+                </div>
+
+                <!-- БЛОК 3 -->
+                <h2>Блок 3: Автономный режим</h2>
+
+                <div class="question-block">
+                    <div class="question-text">21. Почему автономный дрон не боится РЭБ на последнем участке пути?</div>
+                    <label class="option-label"><input type="radio" name="q21" value="wrong"> У него есть специальная защитная обшивка</label>
+                    <label class="option-label"><input type="radio" name="q21" value="correct"> Ему больше не нужен канал связи, он летит по захваченной цели</label>
+                    <label class="option-label"><input type="radio" name="q21" value="wrong"> Он переходит на спутниковый интерфейс Starlink</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">22. Что такое «автозахват цели»?</div>
+                    <label class="option-label"><input type="radio" name="q22" value="correct"> Алгоритм, который наводит дрон на объект, удерживая его в перекрестии</label>
+                    <label class="option-label"><input type="radio" name="q22" value="wrong"> Ручное наведение дрона оператором через очки</label>
+                    <label class="option-label"><input type="radio" name="q22" value="wrong"> Захват дрона сетью с другого дрона</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">23. Когда нужно включать автономный режим?</div>
+                    <label class="option-label"><input type="radio" name="q23" value="wrong"> Сразу при взлете, чтобы не тратить время</label>
+                    <label class="option-label"><input type="radio" name="q23" value="correct"> После обнаружения и захвата цели, до входа в зону РЭБ</label>
+                    <label class="option-label"><input type="radio" name="q23" value="wrong"> Только после потери сигнала</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">24. Как дрон наводится на цель в автономном режиме?</div>
+                    <label class="option-label"><input type="radio" name="q24" value="wrong"> По звуку двигателя цели</label>
+                    <label class="option-label"><input type="radio" name="q24" value="correct"> По визуальным данным с камеры (пикселям)</label>
+                    <label class="option-label"><input type="radio" name="q24" value="wrong"> По тепловому следу от оператора</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">25. Заменяет ли автономный режим физику полета?</div>
+                    <label class="option-label"><input type="radio" name="q25" value="wrong"> Да, дрон летит за счет антигравитации</label>
+                    <label class="option-label"><input type="radio" name="q25" value="correct"> Нет, дрон все равно использует моторы и аэродинамику</label>
+                    <label class="option-label"><input type="radio" name="q25" value="wrong"> Да, ему больше не нужны пропеллеры</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">26. Что ограничивает время автономного полета?</div>
+                    <label class="option-label"><input type="radio" name="q26" value="wrong"> Размер карты памяти</label>
+                    <label class="option-label"><input type="radio" name="q26" value="correct"> Емкость аккумулятора</label>
+                    <label class="option-label"><input type="radio" name="q26" value="wrong"> Количество спутников на орбите</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">27. Если цель в автономном режиме скрылась за деревом, что сделает дрон?</div>
+                    <label class="option-label"><input type="radio" name="q27" value="wrong"> Мгновенно взорвется</label>
+                    <label class="option-label"><input type="radio" name="q27" value="correct"> Потеряет захват и, возможно, промахнется (если нет ИИ-предсказания)</label>
+                    <label class="option-label"><input type="radio" name="q27" value="wrong"> Продолжит лететь точно в центр дерева</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">28. Зачем оператору все еще нужен дрон, если он автономный?</div>
+                    <label class="option-label"><input type="radio" name="q28" value="wrong"> Чтобы дрон не скучал</label>
+                    <label class="option-label"><input type="radio" name="q28" value="correct"> Чтобы доставить дрон в район цели и указать, кого атаковать</label>
+                    <label class="option-label"><input type="radio" name="q28" value="wrong"> Чтобы держать дрон за веревку</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">29. Что такое навигация по местности (без GPS)?</div>
+                    <label class="option-label"><input type="radio" name="q29" value="correct"> Сравнение картинки с камеры с заранее загруженной картой</label>
+                    <label class="option-label"><input type="radio" name="q29" value="wrong"> Ориентация по солнцу и звездам</label>
+                    <label class="option-label"><input type="radio" name="q29" value="wrong"> Использование компаса на смартфоне</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">30. Может ли автономный дрон атаковать не ту цель?</div>
+                    <label class="option-label"><input type="radio" name="q30" value="wrong"> Нет, он никогда не ошибается</label>
+                    <label class="option-label"><input type="radio" name="q30" value="correct"> Да, если алгоритм распознавания ошибся (ложное срабатывание)</label>
+                    <label class="option-label"><input type="radio" name="q30" value="wrong"> Нет, он управляется искусственным интеллектом</label>
+                </div>
+
+                <!-- БЛОК 4 -->
+                <h2>Блок 4: ИИ на дроне</h2>
+
+                <div class="question-block">
+                    <div class="question-text">31. Что представляет собой ИИ на дроне?</div>
+                    <label class="option-label"><input type="radio" name="q31" value="wrong"> Человек-оператор, который сидит внутри дрона</label>
+                    <label class="option-label"><input type="radio" name="q31" value="correct"> Нейросеть, которая анализирует пиксели и находит паттерны</label>
+                    <label class="option-label"><input type="radio" name="q31" value="wrong"> Отдельный микропроцессор для связи со спутником</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">32. Как ИИ «понимает», что перед ним танк?</div>
+                    <label class="option-label"><input type="radio" name="q32" value="wrong"> Он сканирует металл и радиосигналы</label>
+                    <label class="option-label"><input type="radio" name="q32" value="correct"> Он сравнивает форму и контуры объекта с базой данных, на которой обучался</label>
+                    <label class="option-label"><input type="radio" name="q32" value="wrong"> Он считывает маркировку с борта танка</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">33. Почему ИИ может не распознать танк в маскировочной сети?</div>
+                    <label class="option-label"><input type="radio" name="q33" value="wrong"> Сеть блокирует радиосигнал</label>
+                    <label class="option-label"><input type="radio" name="q33" value="correct"> Контуры танка меняются, и нейросеть не находит совпадений с базой</label>
+                    <label class="option-label"><input type="radio" name="q33" value="wrong"> Танк становится невидимым для камеры</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">34. Как ИИ помогает удерживать цель?</div>
+                    <label class="option-label"><input type="radio" name="q34" value="correct"> Он вычисляет смещение объекта и корректирует полет, чтобы он оставался в центре</label>
+                    <label class="option-label"><input type="radio" name="q34" value="wrong"> Он выстреливает гарпуном, чтобы зацепиться за цель</label>
+                    <label class="option-label"><input type="radio" name="q34" value="wrong"> Он замедляет видео, чтобы оператор успел среагировать</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">35. Заменяет ли ИИ оператора полностью?</div>
+                    <label class="option-label"><input type="radio" name="q35" value="wrong"> Да, оператор больше не нужен в современной войне</label>
+                    <label class="option-label"><input type="radio" name="q35" value="correct"> Нет, ИИ — это помощник, решение о пуске и контроль остаются за человеком</label>
+                    <label class="option-label"><input type="radio" name="q35" value="wrong"> Да, дрон полностью автономен и сам решает, кого убивать</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">36. Что нужно для качественной работы нейросети?</div>
+                    <label class="option-label"><input type="radio" name="q36" value="wrong"> Мощный передатчик видеосигнала</label>
+                    <label class="option-label"><input type="radio" name="q36" value="correct"> Большой объем размеченных данных для обучения</label>
+                    <label class="option-label"><input type="radio" name="q36" value="wrong"> Дорогой пульт с экраном</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">37. Если связь с оператором пропала, как ИИ помогает дрону?</div>
+                    <label class="option-label"><input type="radio" name="q37" value="correct"> Удерживает цель по камере и доводит дрон до неё</label>
+                    <label class="option-label"><input type="radio" name="q37" value="wrong"> Восстанавливает радиосигнал</label>
+                    <label class="option-label"><input type="radio" name="q37" value="wrong"> Вызывает оператора по спутниковому телефону</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">38. Что делает ИИ при навигации без GPS?</div>
+                    <label class="option-label"><input type="radio" name="q38" value="wrong"> Использует магнитное поле Земли как компас</label>
+                    <label class="option-label"><input type="radio" name="q38" value="correct"> Сопоставляет текущую картинку с камеры и загруженные снимки местности</label>
+                    <label class="option-label"><input type="radio" name="q38" value="wrong"> Определяет координаты по вышкам сотовой связи</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">39. Почему ИИ может ошибиться на поле боя?</div>
+                    <label class="option-label"><input type="radio" name="q39" value="wrong"> Из-за плохой погоды (дождь или снег)</label>
+                    <label class="option-label"><input type="radio" name="q39" value="wrong"> Из-за того, что оператор отвлекся</label>
+                    <label class="option-label"><input type="radio" name="q39" value="correct"> Из-за нестандартных условий, которых не было в обучающей выборке (тени, дым, маскировка)</label>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">40. В чем главное преимущество ИИ перед человеком на дроне?</div>
+                    <label class="option-label"><input type="radio" name="q40" value="wrong"> Он никогда не ошибается</label>
+                    <label class="option-label"><input type="radio" name="q40" value="correct"> Он обрабатывает визуальные данные с камеры быстрее и не устает</label>
+                    <label class="option-label"><input type="radio" name="q40" value="wrong"> Он может управлять дроном без аккумулятора</label>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="checkExam()">Проверить результаты</button>
+            </form>
+
+            <div id="examResult" class="exam-result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function checkExam() {
+            let score = 0;
+            const totalQuestions = 40;
+            const form = document.getElementById('examForm');
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selected = form.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === 'correct') {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('examResult');
+            resultDiv.style.display = 'block';
+            
+            let message = "";
+            let color = "";
+            
+            if (score === 40) {
+                message = `🏆 Идеально! ${score} из 40. Ты настоящий эксперт!`;
+                color = "#4CAF50";
+            } else if (score >= 32) {
+                message = `✅ Отлично! ${score} из 40. Ты хорошо усвоил материал.`;
+                color = "#8BC34A";
+            } else if (score >= 20) {
+                message = `⚠️ Средне. ${score} из 40. Есть над чем подумать. Перечитай блоки.`;
+                color = "#FF9800";
+            } else {
+                message = `❌ Плохо. ${score} из 40. Нужно вернуться к теории и разобраться.`;
+                color = "#f44336";
+            }
+
+            resultDiv.innerHTML = message;
+            resultDiv.style.backgroundColor = color + "20";
+            resultDiv.style.color = color;
+            resultDiv.style.border = `2px solid ${color}`;
+            
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
