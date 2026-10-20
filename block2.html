@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Блок 2: Ручной режим</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -31,6 +32,53 @@
 
         <h2>3. Где ручной режим полезен?</h2>
         <p>Ручной режим незаменим для <strong>точных маневров</strong>: залететь в окно, облететь препятствие, работать в условиях, где автоматика тупит. Оператор видит картинку и принимает решения. Но на дальних дистанциях он уязвим из-за РЭБ.</p>
+
+        <!-- FPV СИМУЛЯТОР -->
+        <div class="quiz-box" style="border: 2px solid #4CAF50; background-color: #1a1a1a; margin-top: 30px;">
+            <h3 style="color: #4CAF50; margin-top: 0;">🎮 Симулятор полета (FPV)</h3>
+            <p style="font-size: 14px; color: #888;">🔊 Включите звук. Выбери ситуацию и посмотри, как поведет себя дрон.</p>
+            
+            <div style="margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="sim-btn" onclick="startSimulation(1)" style="background-color: #f44336; flex: 1; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold;">Ситуация 1: Просто потеря связи</button>
+                <button class="sim-btn" onclick="startSimulation(2)" style="background-color: #2196F3; flex: 1; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold;">Ситуация 2: РЭБ и захват цели</button>
+                <button onclick="stopAudio()" style="background-color: #555; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">Стоп звук</button>
+            </div>
+
+            <div class="fpv-container">
+                <div class="fpv-screen" id="fpvScreen">
+                    <!-- Прицел -->
+                    <div class="fpv-crosshair"></div>
+                    
+                    <!-- Мишень (Танк) и Рамка захвата -->
+                    <div class="fpv-target" id="fpvTarget"></div>
+                    <div class="target-lock-box" id="targetLock">
+                        <div class="target-label" id="targetLabel">TARGET LOCKED</div>
+                    </div>
+
+                    <!-- Телеметрия -->
+                    <div class="fpv-hud">
+                        <div class="fpv-corner-tl">
+                            <div>SPD: <span id="hudSpd">0</span> km/h</div>
+                            <div>ALT: <span id="hudAlt">120</span> m</div>
+                        </div>
+                        <div class="fpv-corner-tr">
+                            <div>BAT: <span id="hudBat">98</span>%</div>
+                            <div>SAT: <span id="hudSat">12</span></div>
+                        </div>
+                        <div class="fpv-corner-bl">
+                            <div>LAT: <span id="hudLat">47.3821</span></div>
+                            <div>LON: <span id="hudLon">52.5630</span></div>
+                        </div>
+                        <div class="fpv-corner-br">
+                            <div>MODE: <span id="hudMode">MANUAL</span></div>
+                            <div>RSSI: <span id="hudRssi">99</span>%</div>
+                        </div>
+                    </div>
+                    <div class="fpv-status-text" id="fpvStatus">СИГНАЛ ПОТЕРЯН</div>
+                </div>
+            </div>
+        </div>
+        <!-- КОНЕЦ СИМУЛЯТОРА -->
 
         <div class="btn-container">
             <a href="block3.html" class="btn">Перейти к Блоку 3 (Автономный режим)</a>
