@@ -342,86 +342,95 @@ h2 {
 }
 
 /* ==========================================
-   АДАПТИВ ДЛЯ ТЕЛЕФОНОВ И ПЛАНШЕТОВ
+   АДАПТИВ ДЛЯ ТЕЛЕФОНОВ (iPhone XS и т.д.)
    ========================================== */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     
-    /* Уменьшаем отступы контейнера */
+    /* 1. Основной контейнер */
     .container {
-        padding: 20px 10px;
-    }
-
-    /* Уменьшаем заголовки */
-    h1 { font-size: 24px; }
-    .subtitle { font-size: 16px; margin-bottom: 20px; }
-    h2 { font-size: 20px; margin-top: 25px; }
-
-    /* Карточки (Главная страница) */
-    .grid {
-        grid-template-columns: 1fr; /* В один столбец */
-    }
-
-    /* Кнопки */
-    .btn {
-        display: block; /* Кнопка на всю ширину */
+        padding: 15px 10px;
         width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* 2. Заголовки и текст */
+    h1 { font-size: 22px; word-wrap: break-word; }
+    h2 { font-size: 18px; margin-top: 25px; }
+    p { font-size: 15px; line-height: 1.5; }
+    ul { padding-left: 20px; }
+    li { font-size: 15px; margin-bottom: 8px; }
+
+    /* 3. Карточки (сетка) */
+    .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
         padding: 15px;
+    }
+    .card img {
+        height: 100px;
+    }
+
+    /* 4. Кнопки навигации */
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 15px 10px;
         font-size: 16px;
         box-sizing: border-box;
+        text-align: center;
+        margin-bottom: 10px;
     }
-    .btn-container { margin-top: 20px; }
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-    /* Симулятор FPV */
+    /* 5. Симулятор FPV */
     .fpv-screen {
-        height: 200px; /* Экран ниже на телефоне */
+        height: 250px;
     }
     .fpv-hud {
-        font-size: 10px; /* Текст телеметрии меньше */
+        font-size: 10px;
         padding: 5px;
     }
+    /* Прячем углы телеметрии, чтобы не было каши */
     .fpv-corner-tl, .fpv-corner-tr, .fpv-corner-bl, .fpv-corner-br {
-        top: 5px; bottom: 5px; left: 5px; right: 5px;
+        position: absolute;
+        padding: 5px;
     }
-    .fpv-corner-tl { top: 5px; left: 5px; }
-    .fpv-corner-tr { top: 5px; right: 5px; }
-    .fpv-corner-bl { bottom: 5px; left: 5px; }
-    .fpv-corner-br { bottom: 5px; right: 5px; }
-
-    .fpv-status-text {
-        font-size: 14px;
-        transform: translate(-50%, 50%);
-        text-align: center;
-        width: 90%;
-    }
-
-    /* Мишень (Танк) на телефоне */
-    .fpv-target {
-        width: 40px;
-        height: 20px;
-        border-left-width: 10px;
-    }
-    .target-lock-box {
-        width: 60px;
-        height: 35px;
-    }
-    .target-label {
-        font-size: 8px;
-        top: -18px;
-    }
-
-    /* Кнопки управления симулятором */
+    .fpv-corner-tl { top: 0; left: 0; }
+    .fpv-corner-tr { top: 0; right: 0; }
+    .fpv-corner-bl { bottom: 0; left: 0; }
+    .fpv-corner-br { bottom: 0; right: 0; }
+    
+    /* Кнопки симулятора в столбик */
     .quiz-box > div[style*="display: flex"] {
-        flex-direction: column; /* Кнопки друг под другом */
+        flex-direction: column !important;
     }
-    .sim-btn {
-        width: 100%;
-        margin-bottom: 5px;
+    
+    /* Танк и рамка */
+    .fpv-target { width: 40px; height: 20px; }
+    .target-lock-box { width: 60px; height: 35px; }
+    .target-label { font-size: 9px; top: -18px; }
+
+    /* 6. Симулятор РЭБ (Блок 6) */
+    #rebLog {
+        font-size: 11px !important;
+        word-wrap: break-word;
+        white-space: pre-wrap;
     }
 
-    /* Экзамен */
-    .exam-container {
-        padding: 15px;
-    }
+    /* 7. Экзамен */
+    .exam-container { padding: 10px; }
     .question-text { font-size: 16px; }
     .option-label { font-size: 14px; padding: 10px; }
+    .submit-btn { font-size: 16px; padding: 12px; }
 }

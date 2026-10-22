@@ -273,3 +273,43 @@ function startAISimulation() {
         }
     }, 1000); // Каждую секунду
 }
+
+// ==========================================
+// 5. СИМУЛЯТОР РЭБ (Блок 6)
+// ==========================================
+let rebInterval;
+
+function startREBSimulation(mode) {
+    clearInterval(rebInterval);
+    const log = document.getElementById('rebLog');
+    if (!log) return;
+
+    log.innerHTML = "> Подключение к дрону...";
+    
+    let time = 0;
+    
+    rebInterval = setInterval(() => {
+        time++;
+        
+        if (mode === 'normal') {
+            // Обычный дрон
+            if (time === 1) log.innerHTML += "<br>> Взлет разрешен. Сигнал 100%.";
+            if (time === 2) log.innerHTML += "<br>> <span style='color:#f44336'>ВНИМАНИЕ: Обнаружена станция РЭБ!</span>";
+            if (time === 3) log.innerHTML += "<br>> <span style='color:#f44336'>ПОМЕХИ! Сигнал 15%...</span>";
+            if (time === 4) {
+                log.innerHTML += "<br>> <span style='color:#f44336'>СВЯЗЬ ПОТЕРЯНА. ДРОН УПАЛ.</span>";
+                clearInterval(rebInterval);
+            }
+        } else if (mode === 'hopping') {
+            // Дрон с прыжками по частотам
+            if (time === 1) log.innerHTML += "<br>> Взлет разрешен. Сигнал 100%.";
+            if (time === 2) log.innerHTML += "<br>> <span style='color:#f44336'>ВНИМАНИЕ: Обнаружена станция РЭБ!</span>";
+            if (time === 3) log.innerHTML += "<br>> <span style='color:#FF9800'>Смена частоты... 400MHz -> 433MHz -> 868MHz</span>";
+            if (time === 4) log.innerHTML += "<br>> <span style='color:#4CAF50'>Помехи обойдены! Сигнал 85%.</span>";
+            if (time === 5) {
+                log.innerHTML += "<br>> <span style='color:#4CAF50'>Цель поражена. Возврат домой.</span>";
+                clearInterval(rebInterval);
+            }
+        }
+    }, 1000);
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок 6: Тактика и РЭБ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="block5.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Назад к Блоку 5</a>
+
+        <h1>Блок 6: Тактика и РЭБ</h1>
+        <p class="subtitle">Война в эфире: как выжить, когда всё глушат</p>
+
+        <div class="intro-box">
+            <p>Современный дрон — это не только моторы и камера. Это еще и радиосигнал. Кто контролирует эфир, тот контролирует небо. Именно поэтому РЭБ (радиоэлектронная борьба) стала главным оружием против дронов.</p>
+        </div>
+
+        <h2>1. Как работает РЭБ?</h2>
+        <p>РЭБ — это не «глушилка всего». Это точечное воздействие. Станции РЭБ создают мощный «шум» на тех же частотах, на которых работает твой пульт или видеопередатчик. В результате дрон либо теряет управление, либо перестает видеть картинку.</p>
+        
+        <div class="grid" style="margin-top: 20px;">
+            <div class="card" style="text-align: left;">
+                <h3 style="color: #f44336;">Широкополосные помехи</h3>
+                <p>Глушат всё подряд (и свои, и чужие). Очень мощные, но их легко засечь. Работают как «ковровая бомбардировка» в эфире.</p>
+            </div>
+            <div class="card" style="text-align: left;">
+                <h3 style="color: #FF9800;">Прицельные помехи</h3>
+                <p>Бьют точно по частоте твоего дрона. Их сложнее обнаружить, но они требуют знания частоты противника. Работают как снайпер.</p>
+            </div>
+        </div>
+
+        <h2>2. Как обходят РЭБ (Тактические приемы)</h2>
+        <p>Операторы используют несколько хитростей, чтобы не потерять дрон:</p>
+        <ul>
+            <li><strong>Прыжки по частотам (Frequency Hopping):</strong> Пульт и дрон постоянно меняют частоту (например, 100 раз в секунду). РЭБ не успевает заглушить.</li>
+            <li><strong>Оптоволокно:</strong> Дрон управляется по тонкому кабелю. Никакого радио — никакой РЭБ. (Но кабель ограничивает дальность).</li>
+            <li><strong>Автономность:</strong> Если связь пропала, дрон летит по координатам сам (мы говорили об этом в Блоке 3).</li>
+        </ul>
+
+        <div class="intro-box" style="border-left-color: #2196F3; background-color: #1a1a1a;">
+            <p><strong>💡 Тактический факт:</strong> В зоне сильной РЭБ операторы часто переходят на <strong>аналоговый видеосигнал</strong>. Он дает меньше разрешения (картинка в «снегу»), но пробивает помехи лучше, чем цифровой.</p>
+        </div>
+
+        <!-- СИМУЛЯТОР РЭБ -->
+        <div class="quiz-box" style="border: 2px solid #f44336; background-color: #1a1a1a; margin-top: 30px;">
+            <h3 style="color: #f44336; margin-top: 0;">📡 Симулятор: Атака РЭБ</h3>
+            <p>Выбери режим работы и посмотри, как дрон справляется с помехами.</p>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <button class="sim-btn" onclick="startREBSimulation('normal')" style="background-color: #f44336; flex: 1;">Обычный дрон</button>
+                <button class="sim-btn" onclick="startREBSimulation('hopping')" style="background-color: #4CAF50; flex: 1;">Прыжки по частотам</button>
+            </div>
+
+            <div class="fpv-container">
+                <div class="fpv-screen" id="rebScreen" style="background: #222; justify-content: flex-start; align-items: flex-start; padding: 20px; box-sizing: border-box;">
+                    <div id="rebLog" style="color: #00FF00; font-family: monospace; font-size: 14px; line-height: 1.5; text-align: left; width: 100%;">
+                        > Ожидание команды...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <a href="block7.html" class="btn">Перейти к Блоку 7 (Будущее)</a>
+        </div>
+
+        <div class="footer">Учебный проект. Без лишней теории, только логика.</div>
+    </div>
+</body>
+</html>
