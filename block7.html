@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блок 7: Будущее БПЛА</title>
+    <title>Блок 7: Типы дронов</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -11,38 +11,82 @@
     <div class="container">
         <a href="block6.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Назад к Блоку 6</a>
 
-        <h1>Блок 7: Будущее БПЛА</h1>
-        <p class="subtitle">Куда движется технология (и почему это меняет войну)</p>
+        <h1>Блок 7: Типы дронов</h1>
+        <p class="subtitle">Кто есть кто в небе (и зачем они нужны)</p>
 
         <div class="intro-box">
-            <p>Дроны развиваются быстрее, чем любая другая военная техника. То, что было фантастикой 5 лет назад, сейчас стоит на вооружении. Вот главные тренды будущего.</p>
+            <p>Слово «дрон» — это как слово «машина». Бывают грузовики, гоночные болиды и тракторы. С БПЛА та же история. Чтобы не запутаться, операторы делят их на категории по задачам.</p>
         </div>
 
-        <h2>1. Дроны-охотники (Air-to-Air)</h2>
-        <p>Раньше дроны боролись с землей. Теперь они борются друг с другом. Появляются FPV-дроны, которые могут догонять и таранить разведывательные дроны противника (например, «Мавики»). Это требует высокой скорости и точного пилотирования.</p>
-
-        <h2>2. Рои дронов (Swarm)</h2>
-        <p>Один оператор не может управлять 10 дронами одновременно. Но нейросеть может. В будущем планируется запускать «рои» — группы дронов, которые сами распределяют цели между собой. Если один дрон потерян, его задачу берет другой.</p>
-
-        <h2>3. Полная автономность</h2>
-        <p>Сейчас оператор нужен для того, чтобы найти цель и дать команду. В будущем дрон будет сам сканировать территорию, распознавать цели по ИИ и атаковать без участия человека (человек только подтверждает удар).</p>
-
-        <div class="grid" style="margin-top: 30px;">
-            <div class="card" style="text-align: left;">
-                <h3 style="color: #2196F3;">Дрон-Мать</h3>
-                <p>Большой самолет-носитель, который несет в себе 10-20 маленьких FPV-дронов. Он летит в тыл врага, выпускает их, и они атакуют цели.</p>
-            </div>
-            <div class="card" style="text-align: left;">
-                <h3 style="color: #4CAF50;">Лазерное оружие</h3>
-                <p>Уже сейчас есть прототипы лазеров, которые сбивают дроны за секунды. В будущем это станет основой ПВО против роев.</p>
-            </div>
+        <h2>1. Разведывательные дроны (Глаза армии)</h2>
+        <p>Это дроны, которые не атакуют, а <strong>смотрят</strong>. Они летают высоко и долго, передавая картинку на землю. Оператор с их помощью ищет цели и корректирует огонь артиллерии.</p>
+        <div class="card" style="text-align: left; border-left: 4px solid #2196F3; margin-bottom: 20px;">
+            <h3 style="color: #2196F3; margin-top: 0;">Примеры:</h3>
+            <p><strong>Мавик (DJI Mavic)</strong> — «рабочая лошадка». Небольшой квадрокоптер, может висеть в воздухе, снимать видео и сбрасывать гранаты.</p>
+            <p><strong>Орлан</strong> — большой самолет-разведчик. Летает на огромные расстояния, ищет цели в глубоком тылу.</p>
         </div>
+
+        <h2>2. FPV-дроны (Ударные / Камикадзе)</h2>
+        <p>Это самые массовые дроны на войне. FPV (First Person View) означает, что оператор видит картинку от первого лица через очки. Они быстрые, маневренные и <strong>одноразовые</strong>. Их задача — догнать цель и взорваться.</p>
+        <div class="card" style="text-align: left; border-left: 4px solid #f44336; margin-bottom: 20px;">
+            <h3 style="color: #f44336; margin-top: 0;">Особенности:</h3>
+            <ul>
+                <li><strong>Скорость:</strong> До 150 км/ч и выше.</li>
+                <li><strong>Цена:</strong> Дешевле танка в сотни раз.</li>
+                <li><strong>Управление:</strong> Только ручное (оператор ведет его до цели).</li>
+            </ul>
+        </div>
+
+        <h2>3. Ударные дроны большой дальности</h2>
+        <p>Это «стратегические» дроны. Они не летают над окопами. Они летят на сотни километров в тыл врага, чтобы уничтожать заводы, склады и аэродромы.</p>
+        <div class="card" style="text-align: left; border-left: 4px solid #FF9800; margin-bottom: 20px;">
+            <h3 style="color: #FF9800; margin-top: 0;">Примеры:</h3>
+            <p><strong>Герань (Шахед)</strong> — дозвуковой самолет-снаряд. Летит по координатам, его не остановить РЭБ, потому что у него есть автопилот.</p>
+            <p><strong>Ланцет</strong> — барражирующий боеприпас. Может долго кружить над полем, искать цель и затем пикировать на нее.</p>
+        </div>
+
+        <h2>4. Дроны-ретрансляторы (Связь)</h2>
+        <p>Это дроны, которые не воюют, а <strong>удерживают связь</strong>. Когда ты запускаешь FPV-дрон на 15 км, сигнал может пропасть. Тогда в воздух поднимают ретранслятор — он висит посередине и передает сигнал от пульта к дрону.</p>
+
+        <div class="intro-box" style="border-left-color: #4CAF50; background-color: #1a1a1a;">
+            <p><strong>💡 Главное правило:</strong> Оператор должен знать, какой дрон у него в руках. Если это разведчик — его нужно беречь (он дорогой). Если FPV — его не жалко, главное — попасть в цель.</p>
+        </div>
+
+        <h2>5. Сравнительная таблица</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;">
+            <tr style="background: #333; color: #4CAF50;">
+                <th style="padding: 10px; border: 1px solid #444; text-align: left;">Тип</th>
+                <th style="padding: 10px; border: 1px solid #444; text-align: left;">Дальность</th>
+                <th style="padding: 10px; border: 1px solid #444; text-align: left;">Задача</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">FPV (Камикадзе)</td>
+                <td style="padding: 10px; border: 1px solid #444;">10–15 км</td>
+                <td style="padding: 10px; border: 1px solid #444;">Уничтожение цели</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">Мавик (Разведка)</td>
+                <td style="padding: 10px; border: 1px solid #444;">5–10 км</td>
+                <td style="padding: 10px; border: 1px solid #444;">Наблюдение, сброс</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">Орлан (Разведка)</td>
+                <td style="padding: 10px; border: 1px solid #444;">100+ км</td>
+                <td style="padding: 10px; border: 1px solid #444;">Глубокая разведка</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">Герань (Ударный)</td>
+                <td style="padding: 10px; border: 1px solid #444;">1000+ км</td>
+                <td style="padding: 10px; border: 1px solid #444;">Удар по тылу</td>
+            </tr>
+        </table>
+
+        <p style="font-size: 12px; color: #666; margin-top: 20px; text-align: center;">
+            <em>Учебный материал. Все данные общедоступны. Не содержит оперативной информации.</em>
+        </p>
 
         <div class="btn-container">
-            <a href="exam.html" class="btn" style="background-color: #2196F3; font-size: 20px; padding: 15px 50px;">🎓 Перейти к финальному экзамену</a>
-        </div>
-        <div class="btn-container" style="margin-top: 10px;">
-            <a href="index.html" style="color: #aaa; text-decoration: none;">Вернуться на главную</a>
+            <a href="block8.html" class="btn">Перейти к Блоку 8 (Разведка)</a>
         </div>
 
         <div class="footer">Учебный проект. Без лишней теории, только логика.</div>

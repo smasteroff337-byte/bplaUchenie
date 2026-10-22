@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок 9: FPV-пилотирование</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="block8.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Назад к Блоку 8</a>
+
+        <h1>Блок 9: FPV-пилотирование</h1>
+        <p class="subtitle">Искусство управления дроном (и почему новички разбивают дроны)</p>
+
+        <div class="intro-box">
+            <p>Управлять FPV-дроном — это не то же самое, что играть в авиасимулятор. Здесь нет «автоматического возврата в горизонт». Дрон делает <strong>ровно то</strong>, что ты ему говоришь, и если ты ошибся — он падает.</p>
+        </div>
+
+        <h2>1. Два главных режима полета</h2>
+        <p>Все FPV-дроны летают в одном из двух режимов:</p>
+
+        <div class="grid" style="margin-top: 20px;">
+            <div class="card" style="text-align: left; border-left: 4px solid #4CAF50;">
+                <h3 style="color: #4CAF50;">Angle Mode (Стабилизация)</h3>
+                <p><strong>Для новичков.</strong> Дрон сам выравнивается, когда ты отпускаешь стики. Если наклонить стик влево — дрон полетит влево, но не перевернется.</p>
+                <p style="font-size: 12px; color: #888;">Плюс: Легко освоить. Минус: Нельзя делать трюки и резкие развороты.</p>
+            </div>
+            <div class="card" style="text-align: left; border-left: 4px solid #f44336;">
+                <h3 style="color: #f44336;">Acro Mode (Акро)</h3>
+                <p><strong>Для профи.</strong> Дрон <strong>не выравнивается</strong>. Если ты наклонил его влево, он будет вращаться вокруг своей оси, пока ты не вернешь стик обратно.</p>
+                <p style="font-size: 12px; color: #888;">Плюс: Полный контроль, скорость, трюки. Минус: Любая ошибка — и дрон в земле.</p>
+            </div>
+        </div>
+
+        <div class="intro-box" style="border-left-color: #f44336; background-color: #1a1a1a;">
+            <p><strong>💡 Почему новички разбивают дроны?</strong> Они летают в Acro Mode, не понимая физику. В Acro если ты отпустил стик, дрон <strong>не остановится</strong>, он продолжит вращаться. Нужно постоянно корректировать его движения.</p>
+        </div>
+
+        <h2>2. Основные элементы управления</h2>
+        <p>На пульте есть два стика. Каждый отвечает за свои оси:</p>
+        <ul>
+            <li><strong>Левый стик (вертикаль):</strong> Газ (Throttle). Вверх — дрон набирает высоту, вниз — снижается.</li>
+            <li><strong>Левый стик (горизонталь):</strong> Рыскание (Yaw). Поворот дрона влево/вправо.</li>
+            <li><strong>Правый стик (вертикаль):</strong> Тангаж (Pitch). Наклон вперед/назад (движение вперед/назад).</li>
+            <li><strong>Правый стик (горизонталь):</strong> Крен (Roll). Наклон влево/вправо (движение вбок).</li>
+        </ul>
+
+        <h2>3. Интерактив: Удержи дрон!</h2>
+        <p>Ниже — мини-игра. Тебе нужно удерживать дрон в центре экрана, нажимая кнопки. Это симуляция того, как сложно удерживать баланс в Acro Mode.</p>
+
+        <!-- Интерактив: Мини-игра -->
+        <div class="quiz-box" style="border: 2px solid #2196F3; background-color: #1a1a1a; text-align: center;">
+            <h3 style="color: #2196F3; margin-top: 0;">🎮 Симулятор: Держи баланс</h3>
+            <p>Дрон будет наклоняться. Твоя задача — возвращать его в центр, нажимая на кнопки.</p>
+            
+            <!-- Игровое поле -->
+            <div style="position: relative; width: 100%; max-width: 300px; height: 200px; margin: 20px auto; background: #000; border: 2px solid #444; border-radius: 8px; overflow: hidden;">
+                <div id="droneGameObj" style="position: absolute; width: 40px; height: 40px; background: #4CAF50; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: all 0.3s; box-shadow: 0 0 10px #4CAF50;"></div>
+                <div style="position: absolute; width: 2px; height: 100%; background: #333; left: 50%;"></div>
+                <div style="position: absolute; width: 100%; height: 2px; background: #333; top: 50%;"></div>
+            </div>
+
+            <!-- Кнопки управления -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; max-width: 200px; margin: 0 auto;">
+                <div></div>
+                <button class="sim-btn" onclick="moveDrone(0, -10)" style="background-color: #555; padding: 15px; font-size: 20px;">▲</button>
+                <div></div>
+                <button class="sim-btn" onclick="moveDrone(-10, 0)" style="background-color: #555; padding: 15px; font-size: 20px;">◀</button>
+                <button class="sim-btn" onclick="moveDrone(0, 0)" style="background-color: #4CAF50; padding: 15px; font-size: 14px;">ЦЕНТР</button>
+                <button class="sim-btn" onclick="moveDrone(10, 0)" style="background-color: #555; padding: 15px; font-size: 20px;">▶</button>
+                <div></div>
+                <button class="sim-btn" onclick="moveDrone(0, 10)" style="background-color: #555; padding: 15px; font-size: 20px;">▼</button>
+                <div></div>
+            </div>
+            
+            <p id="gameStatus" style="margin-top: 15px; font-weight: bold; color: #4CAF50;">Статус: Полет нормальный</p>
+        </div>
+
+        <div class="btn-container">
+            <a href="block10.html" class="btn">Перейти к Блоку 10 (Последний рывок)</a>
+        </div>
+
+        <div class="footer">Учебный проект. Без лишней теории, только логика.</div>
+    </div>
+</body>
+</html>

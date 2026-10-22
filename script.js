@@ -374,3 +374,126 @@ function startDroneAnimationInline() {
         }, 2000);
     }, 500);
 }
+
+// ==========================================
+// 9. БЛОК 8: Проверка координатной сетки
+// ==========================================
+function checkGrid(cell, isCorrect) {
+    const result = document.getElementById('gridResult');
+    if (!result) return;
+    
+    result.style.display = 'block';
+    
+    // Сбрасываем цвета у всех ячеек
+    const cells = document.querySelectorAll('.grid-cell');
+    cells.forEach(c => {
+        c.style.background = '#333';
+        c.style.border = 'none';
+    });
+
+    if (isCorrect) {
+        result.style.color = '#4CAF50';
+        result.innerText = '✅ Верно! Квадрат 2-Б — это центр. Именно туда нужно передавать координаты.';
+        
+        // Подсвечиваем правильную ячейку
+        const correctCell = Array.from(cells).find(c => c.innerText === '2-Б');
+        if (correctCell) {
+            correctCell.style.background = '#4CAF50';
+            correctCell.style.border = '2px solid #fff';
+        }
+    } else {
+        result.style.color = '#f44336';
+        result.innerText = '❌ Неверно. Вспомни: первая цифра — это строка (сверху вниз), буква — это столбец (слева направо).';
+    }
+}
+
+// ==========================================
+// 10. БЛОК 9: Мини-игра "Держи баланс"
+// ==========================================
+let droneX = 0;
+let droneY = 0;
+let driftInterval;
+
+// Функция для запуска дрейфа (дрон сам начинает наклоняться)
+function startDroneDrift() {
+    clearInterval(driftInterval);
+    driftInterval = setInterval(() => {
+        // Если игра окончена, не двигаем
+        if (Math.abs(droneX) > 100 || Math.abs(droneY) > 80) return;
+        
+        // Случайный дрейф
+        droneX += (Math.random() - 0.5) * 15;
+        droneY += (Math.random() - 0.5) * 15;
+        updateDronePosition();
+    }, 1500); // Дрейф каждые 1.5 секунды
+}
+
+// Движение дрона по кнопкам
+function moveDrone(dx, dy) {
+    // Проверяем, не вылетел ли дрон
+    if (Math.abs(droneX) > 100 || Math.abs(droneY) > 80) return;
+
+    // Двигаем
+    droneX += dx;
+    droneY += dy;
+    updateDronePosition();
+}
+
+// Обновление позиции на экране
+function updateDronePosition() {
+    const obj = document.getElementById('droneGameObj');
+    const status = document.getElementById('gameStatus');
+    if (!obj || !status) return;
+
+    // Ограничиваем движение (границы экрана)
+    if (droneX > 120) droneX = 120;
+    if (droneX < -120) droneX = -120;
+    if (droneY > 90) droneY = 90;
+    if (droneY < -90) droneY = -90;
+
+    // Применяем смещение
+    obj.style.transform = `translate(calc(-50% + ${droneX}px), calc(-50% + ${droneY}px))`;
+
+    // Проверка на "вылет"
+    if (Math.abs(droneX) >= 120 || Math.abs(droneY) >= 90) {
+        obj.style.background = '#f44336';
+        obj.style.boxShadow = '0 0 20px #f44336';
+        status.innerText = "❌ ДРОН РАЗБИЛСЯ! Нажми 'ЦЕНТР' для рестарта.";
+        status.style.color = "#f44336";
+        clearInterval(driftInterval);
+    } else if (Math.abs(droneX) > 80 || Math.abs(droneY) > 60) {
+        status.innerText = "⚠️ Опасно! Дрон теряет управление!";
+        status.style.color = "#FF9800";
+    } else {
+        status.innerText = "✅ Статус: Полет нормальный";
+        status.style.color = "#4CAF50";
+    }
+}
+
+// Сброс игры (при нажатии "Центр")
+function resetDroneGame() {
+    droneX = 0;
+    droneY = 0;
+    const obj = document.getElementById('droneGameObj');
+    const status = document.getElementById('gameStatus');
+    if (obj) {
+        obj.style.background = '#4CAF50';
+        obj.style.boxShadow = '0 0 10px #4CAF50';
+    }
+    if (status) {
+        status.innerText = "Статус: Полет нормальный";
+        status.style.color = "#4CAF50";
+    }
+    updateDronePosition();
+    startDroneDrift();
+}
+
+// Привязка кнопки "Центр" к рестарту
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector('button[onclick="moveDrone(0, 0)"]');
+    if (btn) {
+        btn.addEventListener('click', resetDroneGame);
+        // Запускаем дрейф при загрузке страницы
+        startDroneDrift();
+    }
+});

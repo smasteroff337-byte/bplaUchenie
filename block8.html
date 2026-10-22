@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок 8: Разведка и целеуказание</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="block7.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Назад к Блоку 7</a>
+
+        <h1>Блок 8: Разведка и целеуказание</h1>
+        <p class="subtitle">Глаза армии: как дрон находит цель и передает данные</p>
+
+        <div class="intro-box">
+            <p>Многие думают, что дрон — это просто «летающая пушка». На самом деле, 90% работы оператора БПЛА — это <strong>разведка</strong>. Оператор должен не просто увидеть танк, а точно описать его местоположение, чтобы артиллерия или штурмовики могли его уничтожить.</p>
+        </div>
+
+        <h2>1. Как работает воздушная разведка</h2>
+        <p>Дрон летит на высоте (например, 100–300 метров) и смотрит вниз. В это время оператор ищет цели. Но просто сказать «там танк» недостаточно. Нужно передать <strong>точные координаты</strong> и <strong>описание местности</strong>.</p>
+        <p>Для этого используется система <strong>квадратов</strong> (или координатная сетка). Представь карту, разбитую на клетки, как в шахматах. Каждая клетка имеет свой номер. Оператор говорит: <em>«Цель в квадрате 42-Б»</em> — и артиллеристы знают, куда стрелять.</p>
+
+        <h2>2. Как правильно описать цель (Чтобы поняли)</h2>
+        <p>Если ты просто скажешь «там танк», тебя могут не понять. Вот правила военного целеуказания:</p>
+        <ul>
+            <li><strong>Ориентир:</strong> От чего считать? (Например: «Сломанное дерево», «Мост», «Перекресток»).</li>
+            <li><strong>Расстояние и направление:</strong> «В 200 метрах севернее ориентира».</li>
+            <li><strong>Тип цели:</strong> Танк, БТР, скопление пехоты, пулеметная точка.</li>
+            <li><strong>Состояние:</strong> Горит, движется, стоит на месте, замаскирован.</li>
+        </ul>
+
+        <div class="intro-box" style="border-left-color: #FF9800; background-color: #1a1a1a;">
+            <p><strong>💡 Пример правильного доклада:</strong> «Вижу цель. Ориентир — разрушенный дом. Севернее 100 метров, в посадке. Танк Т-72, стоит на месте, башня повернута на запад. Квадрат 45-В».</p>
+        </div>
+
+        <h2>3. Интерактив: Найди цель по координатам</h2>
+        <p>Ниже представлена учебная сетка (как на планшете оператора). Кликни на нужный квадрат, чтобы проверить, правильно ли ты понял команду.</p>
+
+        <!-- Интерактив: Координатная сетка -->
+        <div class="quiz-box" style="border: 2px solid #2196F3; background-color: #1a1a1a;">
+            <h3 style="color: #2196F3; margin-top: 0;">🗺️ Задание: Найди квадрат 2-Б</h3>
+            <p>Командир передал: «Цель в квадрате 2-Б». Кликни по этому квадрату на сетке.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; max-width: 300px; margin: 20px auto;">
+                <div class="grid-cell" onclick="checkGrid('1-А', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">1-А</div>
+                <div class="grid-cell" onclick="checkGrid('1-Б', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">1-Б</div>
+                <div class="grid-cell" onclick="checkGrid('1-В', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">1-В</div>
+                
+                <div class="grid-cell" onclick="checkGrid('2-А', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">2-А</div>
+                <div class="grid-cell" onclick="checkGrid('2-Б', true)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">2-Б</div>
+                <div class="grid-cell" onclick="checkGrid('2-В', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">2-В</div>
+                
+                <div class="grid-cell" onclick="checkGrid('3-А', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">3-А</div>
+                <div class="grid-cell" onclick="checkGrid('3-Б', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">3-Б</div>
+                <div class="grid-cell" onclick="checkGrid('3-В', false)" style="background: #333; padding: 20px; text-align: center; cursor: pointer; border-radius: 4px; color: #fff;">3-В</div>
+            </div>
+            
+            <div id="gridResult" style="text-align: center; font-weight: bold; margin-top: 15px; display: none;"></div>
+        </div>
+
+        <h2>4. Таблица целей (Шпаргалка оператора)</h2>
+        <p>Чтобы быстро описывать цели, операторы используют стандартные сокращения. Вот основные:</p>
+        
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;">
+            <tr style="background: #333; color: #4CAF50;">
+                <th style="padding: 10px; border: 1px solid #444; text-align: left;">Что видим</th>
+                <th style="padding: 10px; border: 1px solid #444; text-align: left;">Как называем</th>
+                <th style="padding: 10px; border: 1px solid #444; text-align: left;">Приоритет</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">Танк</td>
+                <td style="padding: 10px; border: 1px solid #444;"><strong>Т-72, Т-90, Леопард</strong></td>
+                <td style="padding: 10px; border: 1px solid #444; color: #f44336;">Высокий (Бить первым)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">Бронетранспортер</td>
+                <td style="padding: 10px; border: 1px solid #444;"><strong>БТР, БМП</strong></td>
+                <td style="padding: 10px; border: 1px solid #444; color: #FF9800;">Средний</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">Грузовик с людьми</td>
+                <td style="padding: 10px; border: 1px solid #444;"><strong>Урал, КамАЗ (пехота)</strong></td>
+                <td style="padding: 10px; border: 1px solid #444; color: #FF9800;">Средний</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #444;">Один человек</td>
+                <td style="padding: 10px; border: 1px solid #444;"><strong>Одиночная цель (200)</strong></td>
+                <td style="padding: 10px; border: 1px solid #444; color: #4CAF50;">Низкий (Не тратить снаряды)</td>
+            </tr>
+        </table>
+
+        <p style="font-size: 12px; color: #666; margin-top: 20px; text-align: center;">
+            <em>Учебный материал. Все данные общедоступны. Не содержит оперативной информации.</em>
+        </p>
+
+        <div class="btn-container">
+            <a href="block9.html" class="btn">Перейти к Блоку 9 (FPV-пилотирование)</a>
+        </div>
+
+        <div class="footer">Учебный проект. Без лишней теории, только логика.</div>
+    </div>
+</body>
+</html>
