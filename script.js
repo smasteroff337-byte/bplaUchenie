@@ -313,3 +313,64 @@ function startREBSimulation(mode) {
         }
     }, 1000);
 }
+
+// ==========================================
+// 6. КАРТА ЦЕЛЕЙ (map.html)
+// ==========================================
+function showHitInfo(title, text) {
+    const panel = document.getElementById('infoPanel');
+    if (!panel) return;
+
+    panel.innerHTML = `
+        <h3 style="color: #f44336; margin-top: 0;">🎯 ${title}</h3>
+        <p style="margin: 0; font-size: 15px;">${text}</p>
+    `;
+    
+    // Легкая анимация появления
+    panel.style.opacity = '0';
+    setTimeout(() => {
+        panel.style.transition = 'opacity 0.3s';
+        panel.style.opacity = '1';
+    }, 10);
+}
+
+
+function startDroneAnimationInline() {
+    const enemy = document.getElementById('simEnemyInline');
+    const aiLock = document.getElementById('simAiLockInline');
+    const explosion = document.getElementById('simExplosionInline');
+    const status = document.getElementById('simStatusInline');
+    
+    if (!enemy) return;
+
+    enemy.style.transition = 'none';
+    enemy.style.left = '120%';
+    aiLock.classList.remove('active');
+    explosion.classList.remove('active');
+    status.innerText = "Поиск цели...";
+    status.style.color = "#00FF00";
+
+    setTimeout(() => {
+        enemy.style.transition = 'left 2s linear';
+        enemy.style.left = '55%'; 
+        
+        setTimeout(() => {
+            aiLock.classList.add('active');
+            status.innerText = "ЦЕЛЬ РАСПОЗНАНА: ТАНК";
+            status.style.color = "#f44336";
+            
+            setTimeout(() => {
+                status.innerText = "ПУСК!";
+                status.style.color = "#FF9800";
+                explosion.classList.add('active');
+                
+                setTimeout(() => {
+                    enemy.style.left = '150%'; 
+                    status.innerText = "ЦЕЛЬ ПОРАЖЕНА.";
+                    status.style.color = "#4CAF50";
+                    aiLock.classList.remove('active');
+                }, 1000);
+            }, 1500);
+        }, 2000);
+    }, 500);
+}

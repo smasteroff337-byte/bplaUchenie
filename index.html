@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>БПЛА: как это работает</title>
-    <!-- Вот здесь мы подключаем наш отдельный файл со стилями -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,7 +39,65 @@
             </div>
         </div>
 
-        <div class="btn-container">
+        <h2 style="text-align: center; margin-top: 40px;">📊 БПЛА в цифрах (Безопасные данные)</h2>
+        <div class="grid" style="margin-top: 20px;">
+            <div class="card" style="text-align: left; border-left: 4px solid #4CAF50;">
+                <h3 style="color: #4CAF50; margin: 0 0 10px 0;">Дальность FPV</h3>
+                <p style="font-size: 24px; font-weight: bold; margin: 0;">10–15 км</p>
+                <p style="font-size: 12px; color: #888;">Рабочая дистанция большинства ударных дронов.</p>
+            </div>
+            <div class="card" style="text-align: left; border-left: 4px solid #2196F3;">
+                <h3 style="color: #2196F3; margin: 0 0 10px 0;">Скорость «Герани»</h3>
+                <p style="font-size: 24px; font-weight: bold; margin: 0;">~180 км/ч</p>
+                <p style="font-size: 12px; color: #888;">Скорость дозвуковых барражирующих боеприпасов.</p>
+            </div>
+            <div class="card" style="text-align: left; border-left: 4px solid #FF9800;">
+                <h3 style="color: #FF9800; margin: 0 0 10px 0;">Высота полета</h3>
+                <p style="font-size: 24px; font-weight: bold; margin: 0;">100–500 м</p>
+                <p style="font-size: 12px; color: #888;">Типичная рабочая высота для FPV и разведки.</p>
+            </div>
+        </div>
+
+        <!-- СИМУЛЯЦИЯ С ВСТРОЕННЫМИ СТИЛЯМИ (Чтобы точно работало) -->
+        <h2 style="text-align: center; margin-top: 40px;">📹 Симуляция: Работа оператора</h2>
+        
+        <style>
+            .inline-sim-container { background-color: #1e1e1e; padding: 15px; border-radius: 12px; border: 2px solid #333; margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; }
+            .inline-sim-screen { position: relative; width: 100%; height: 250px; background-color: #111; border-radius: 8px; overflow: hidden; border: 2px solid #444; font-family: 'Courier New', monospace; }
+            .inline-sim-ground { position: absolute; bottom: 0; width: 200%; height: 50%; background: repeating-linear-gradient(90deg, #2a2a2a 0%, #2a2a2a 10%, #333 10%, #333 20%); animation: moveGroundInline 2s linear infinite; }
+            @keyframes moveGroundInline { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+            .inline-sim-crosshair { position: absolute; top: 50%; left: 50%; width: 30px; height: 30px; border: 1px solid #00FF00; border-radius: 50%; transform: translate(-50%, -50%); opacity: 0.5; }
+            .inline-sim-crosshair::before, .inline-sim-crosshair::after { content: ''; position: absolute; background: #00FF00; }
+            .inline-sim-crosshair::before { top: 50%; left: -10px; right: -10px; height: 1px; }
+            .inline-sim-crosshair::after { left: 50%; top: -10px; bottom: -10px; width: 1px; }
+            .inline-sim-enemy { position: absolute; bottom: 30%; left: 120%; width: 50px; height: 25px; background-color: #444; border-radius: 4px; border-left: 10px solid #222; transition: left 2s linear; }
+            .inline-sim-ai-lock { position: absolute; width: 70px; height: 40px; border: 2px solid transparent; top: calc(70% - 20px); left: 60%; opacity: 0; transition: all 0.3s; }
+            .inline-sim-ai-lock.active { opacity: 1; border-color: #f44336; animation: pulseRedInline 0.5s infinite alternate; }
+            .inline-sim-ai-label { position: absolute; top: -20px; left: 0; background-color: #f44336; color: white; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 2px; white-space: nowrap; }
+            @keyframes pulseRedInline { 0% { box-shadow: 0 0 5px rgba(244, 67, 54, 0.5); } 100% { box-shadow: 0 0 15px rgba(244, 67, 54, 0.9); } }
+            .inline-sim-explosion { position: absolute; width: 80px; height: 80px; background: radial-gradient(circle, #FF9800, #f44336, transparent); border-radius: 50%; top: 50%; left: 60%; transform: translate(-50%, -50%) scale(0); opacity: 0; pointer-events: none; }
+            .inline-sim-explosion.active { animation: explodeInline 1s ease-out forwards; }
+            @keyframes explodeInline { 0% { transform: translate(-50%, -50%) scale(0); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(2); opacity: 0; } }
+            .inline-sim-status { position: absolute; bottom: 10px; left: 10px; color: #00FF00; font-size: 14px; font-weight: bold; text-shadow: 1px 1px 2px #000; }
+        </style>
+
+        <div class="inline-sim-container">
+            <div class="inline-sim-screen">
+                <div class="inline-sim-ground"></div>
+                <div class="inline-sim-crosshair"></div>
+                <div class="inline-sim-enemy" id="simEnemyInline"></div>
+                <div class="inline-sim-ai-lock" id="simAiLockInline">
+                    <div class="inline-sim-ai-label">T-72 | ENEMY</div>
+                </div>
+                <div class="inline-sim-explosion" id="simExplosionInline"></div>
+                <div class="inline-sim-status" id="simStatusInline">Поиск цели...</div>
+            </div>
+            <button class="btn" style="width: 100%; margin-top: 10px; background-color: #2196F3;" onclick="startDroneAnimationInline()">▶ Запустить симуляцию</button>
+        </div>
+
+        <!-- Кнопки внизу -->
+        <div class="btn-container" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+            <a href="map.html" class="btn" style="background-color: #FF9800;">🗺️ Карта уязвимостей</a>
             <a href="block1.html" class="btn">Начать обучение (Блок 1)</a>
         </div>
 

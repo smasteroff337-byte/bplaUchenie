@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта целей: Уязвимости техники</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        /* Стили для карты (можно вынести в style.css, но здесь так проще) */
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto;
+            background-color: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        /* Рисуем танк через CSS (схематично) */
+        .tank-silhouette {
+            position: relative;
+            width: 200px;
+            height: 120px;
+            background-color: #2a2a2a;
+            border-radius: 10px 10px 5px 5px;
+            border: 2px solid #444;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        /* Башня */
+        .tank-turret {
+            position: absolute;
+            top: -30px;
+            left: 50px;
+            width: 80px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 8px 8px 0 0;
+            border: 2px solid #555;
+        }
+        /* Пушка */
+        .tank-gun {
+            position: absolute;
+            top: 10px;
+            left: -80px;
+            width: 90px;
+            height: 8px;
+            background-color: #444;
+            border-radius: 2px;
+        }
+        /* Гусеницы */
+        .tank-tracks {
+            position: absolute;
+            bottom: -15px;
+            left: -10px;
+            width: 220px;
+            height: 25px;
+            background-color: #111;
+            border-radius: 5px;
+            border: 2px solid #333;
+        }
+
+        /* Зоны поражения */
+        .hit-zone {
+            position: absolute;
+            cursor: crosshair;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+        .hit-zone:hover {
+            background: rgba(244, 67, 54, 0.4);
+            border-color: #f44336;
+            box-shadow: 0 0 15px rgba(244, 67, 54, 0.6);
+        }
+        .hit-zone::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .hit-zone:hover::after {
+            opacity: 1;
+        }
+
+        /* Информационная панель */
+        .info-panel {
+            background-color: #1e1e1e;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            min-height: 100px;
+        }
+        .info-panel h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" style="color: #4CAF50; text-decoration: none; margin-bottom: 20px; display: inline-block;">← На главную</a>
+
+        <h1>Карта уязвимостей</h1>
+        <p class="subtitle">Куда бить, чтобы вывести технику из строя</p>
+
+        <div class="intro-box">
+            <p>Это учебная схема. В реальности всё зависит от типа техники, но есть базовые принципы поражения. Наведи курсор (или нажми на телефоне) на красные зоны, чтобы узнать результат.</p>
+        </div>
+
+        <div class="map-container">
+            <div class="tank-silhouette">
+                <div class="tank-turret">
+                    <div class="tank-gun"></div>
+                </div>
+                <div class="tank-tracks"></div>
+
+                <!-- Зоны поражения (Кликни по ним) -->
+                <div class="hit-zone" style="top: 20px; left: 60px; width: 60px; height: 30px;" 
+                     data-label="Башня" 
+                     onclick="showHitInfo('БАШНЯ', 'Здесь находится экипаж и боеукладка. Поражение башни часто приводит к детонации боекомплекта (срыву башни).')"></div>
+
+                <div class="hit-zone" style="top: 70px; left: 20px; width: 60px; height: 40px;" 
+                     data-label="МТО (Двигатель)" 
+                     onclick="showHitInfo('МОТОРНО-ТРАНСМИССИОННОЕ ОТДЕЛЕНИЕ', 'Задняя часть танка. Попадание вызывает пожар и обездвиживает машину. Танк становится легкой мишенью.')"></div>
+
+                <div class="hit-zone" style="top: 105px; left: 10px; width: 80px; height: 25px;" 
+                     data-label="Гусеница" 
+                     onclick="showHitInfo('ХОДОВАЯ ЧАСТЬ', 'Повреждение гусеницы или катков лишает танк подвижности. Он не может маневрировать и отступать.')"></div>
+            </div>
+        </div>
+
+        <!-- Панель вывода информации -->
+        <div class="info-panel" id="infoPanel">
+            <h3 style="color: #888; margin: 0;">Выбери зону на схеме...</h3>
+        </div>
+
+        <div class="btn-container">
+            <a href="index.html" class="btn">Вернуться на главную</a>
+        </div>
+
+        <div class="footer">Учебный проект. Без лишней теории, только логика.</div>
+    </div>
+</body>
+</html>
